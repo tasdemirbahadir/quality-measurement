@@ -85,7 +85,6 @@
 							<destFile>${project.test.result.directory}/jacoco/jacoco.exec</destFile>
 						</configuration>
 					</execution>
-					<!-- Ensures that the code coverage report for unit tests is created after unit tests have been run -->
 					<execution>
 						<id>post-test</id>
 						<phase>test</phase>
