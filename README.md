@@ -1,0 +1,1 @@
+## Sample Project for Spring Boot Sonarqube Quality Measurement
