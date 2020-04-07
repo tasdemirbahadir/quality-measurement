@@ -1,5 +1,10 @@
 #### Sample Project for Spring Boot Sonarqube Quality Measurement
 
+## Perquisites
+
+ - Maven 3.x or higher version
+ - Java 11
+
 ## Bootstrap Servers
 `docker-compose -f .build/docker-compose.yml up -d`
 
