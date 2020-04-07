@@ -24,7 +24,7 @@ class TestControllerTest {
         //Given
 
         //When
-        ResultActions result = mockMvc.perform(get("/test"));
+        var result = mockMvc.perform(get("/test"));
 
         //Then
         result.andExpect(status().isOk())
