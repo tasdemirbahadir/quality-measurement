@@ -15,4 +15,7 @@ public class TestController {
         return TEST_MESSAGE;
     }
 
+    public void empty_function_with_bad_naming(){
+        //
+    }
 }
