@@ -20,7 +20,7 @@ jobs:
       - name: Configure Sonar Properties
         run: |
             chmod 400 secrets.sh
-            bash secret.sh
+            bash secrets.sh
         env:
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
           SONAR_PROJECT_KEY: ${{ secrets.SONAR_PROJECT_KEY }}
