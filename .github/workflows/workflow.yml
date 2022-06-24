@@ -17,6 +17,10 @@ jobs:
         with:
           java-version: '11'
           distribution: 'adopt'
+      # - name: slackNotifyStart
+      #   run: |
+      #     curl -X POST -H 'Content-type: application/json' --data '{"text":" The Job ${{ github.job }} has Started 🧎🧎‍♀. ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"}' {incoming webhook link}
+      #     curl -X POST -H 'Content-type: application/json' --data '{"text":" ${{ github.actor}} has committed to ${{github.ref}}, commit message: |${{ github.event.head_commit.message}}|"}' {incoming webhook link}
       - name: Configure Sonar Properties
         run: |
             chmod 400 secrets.sh
@@ -28,3 +32,11 @@ jobs:
       - name: Generate Raport and Upload to SonarQube
         run: |
           mvn clean install sonar:sonar
+      # - name: slackNotifySuccess
+      #   if: success()
+      #   run: |
+      #     curl -X POST -H 'Content-type: application/json' --data '{"text":" The Job ${{ github.job }} has Passed   ✅ 😍   ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"}' {incoming webhook link}
+      # - name: slackNotifyFail
+      #   if: failure()
+      #   run: |
+      #     curl -X POST -H 'Content-type: application/json' --data '{"text":" The Job ${{ github.job }} has Failed   ❌ 🤬   ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"}' {incoming webhook link}
