@@ -17,7 +17,14 @@ jobs:
         with:
           java-version: '11'
           distribution: 'adopt'
-      - name: Build with Maven
+      - name: Configure Sonar Properties
         run: |
-          mvn clean install 
-          mvn package 
+            chmod 400 secrets.sh
+            bash secret.sh
+        env:
+          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
+          SONAR_PROJECT_KEY: ${{ secrets.SONAR_PROJECT_KEY }}
+          SONAR_LOGIN: ${{ secrets.SONAR_LOGIN }}
+      - name: Generate Raport and Upload to SonarQube
+        run: |
+          mvn clean install sonar:sonar
